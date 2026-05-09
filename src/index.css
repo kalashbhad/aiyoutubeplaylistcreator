@@ -1,0 +1,298 @@
+:root {
+  --bg-paper: #fdfdfc;
+  --text-ink: #1e1e24;
+  --text-muted: #55555e;
+  --border-ink: #1e1e24;
+  --accent-red: #e11d48;
+  --accent-green: #16a34a;
+  
+  --drawn-border-1: 255px 15px 225px 15px/15px 225px 15px 255px;
+  --drawn-border-2: 15px 225px 15px 255px/255px 15px 225px 15px;
+  --drawn-border-3: 300px 20px 200px 30px/20px 300px 30px 200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+  background-color: var(--bg-paper);
+  color: var(--text-ink);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* Paper grid background */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-attachment: fixed;
+}
+
+.app-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.header h1 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3.5rem;
+  color: var(--text-ink);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  transform: rotate(-2deg);
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+}
+
+.header p {
+  color: var(--text-muted);
+  font-size: 1.8rem;
+  transform: rotate(1deg);
+}
+
+/* Hand-drawn panels */
+.glass-panel, .drawn-panel {
+  background: white;
+  border: 3px solid var(--border-ink);
+  border-radius: var(--drawn-border-1);
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 6px 6px 0px rgba(0,0,0,0.8);
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.drawn-panel-alt {
+  border-radius: var(--drawn-border-2);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--text-ink);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: transparent;
+  border: 2px solid var(--border-ink);
+  border-radius: var(--drawn-border-3);
+  color: var(--text-ink);
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+  box-shadow: 3px 3px 0px rgba(0,0,0,0.1) inset;
+}
+
+.form-control:focus {
+  outline: none;
+  border-width: 3px;
+  background-color: #fffae6; /* slight yellow highlight like a highlighter */
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 150px;
+  line-height: 1.4;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.8rem;
+  font-family: 'Permanent Marker', cursive;
+  font-weight: normal;
+  background-color: white;
+  color: var(--text-ink);
+  border: 3px solid var(--border-ink);
+  border-radius: var(--drawn-border-2);
+  cursor: pointer;
+  box-shadow: 4px 4px 0px var(--text-ink);
+  transition: all 0.1s ease;
+  transform: rotate(-1deg);
+}
+
+.btn-primary {
+  background-color: #ffd700; /* sketchy yellow */
+}
+
+.btn:hover:not(:disabled) {
+  transform: translate(2px, 2px) rotate(-1deg);
+  box-shadow: 2px 2px 0px var(--text-ink);
+}
+
+.btn:active:not(:disabled) {
+  transform: translate(4px, 4px) rotate(0deg);
+  box-shadow: 0px 0px 0px var(--text-ink);
+}
+
+.btn:disabled {
+  background-color: #e5e5e5;
+  color: #888;
+  border-color: #888;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Status Messages & Logs */
+.status-message {
+  padding: 1rem 1.5rem;
+  border: 2px solid var(--border-ink);
+  border-radius: var(--drawn-border-1);
+  margin-top: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: white;
+  box-shadow: 3px 3px 0px rgba(0,0,0,0.8);
+  font-size: 1.4rem;
+}
+
+.status-error {
+  background-image: repeating-linear-gradient(45deg, #ffe4e6, #ffe4e6 10px, white 10px, white 20px);
+}
+
+.status-success {
+  background-image: repeating-linear-gradient(45deg, #dcfce7, #dcfce7 10px, white 10px, white 20px);
+}
+
+.logs-container {
+  margin-top: 2rem;
+  background: white;
+  border: 2px dashed var(--border-ink);
+  border-radius: 10px;
+  padding: 1rem;
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  color: var(--text-ink);
+  max-height: 250px;
+  overflow-y: auto;
+  box-shadow: 2px 2px 0px rgba(0,0,0,0.1) inset;
+}
+
+.log-item {
+  margin-bottom: 0.5rem;
+  border-bottom: 1px dotted #ccc;
+  padding-bottom: 0.25rem;
+  line-height: 1.2;
+}
+
+.log-item:last-child {
+  border-bottom: none;
+}
+
+/* Mode toggle buttons */
+.mode-toggle-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  background: transparent;
+}
+
+.mode-btn {
+  flex: 1;
+  padding: 0.5rem;
+  border: 2px solid var(--border-ink);
+  background: white;
+  font-family: 'Caveat', cursive;
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: var(--drawn-border-3);
+  transition: all 0.2s;
+  box-shadow: 3px 3px 0px var(--text-ink);
+}
+
+.mode-btn.active {
+  background: #000;
+  color: white;
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--text-ink);
+}
+
+.scribble-underline {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 2px;
+}
+
+/* Setup Guide Section */
+.setup-guide {
+  margin-top: 2rem;
+  border: 2px solid var(--border-ink);
+  border-radius: var(--drawn-border-1);
+  padding: 1.5rem;
+  background-color: #f8fafc;
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+}
+
+.setup-guide h3 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--border-ink);
+  display: inline-block;
+  padding-bottom: 0.2rem;
+}
+
+.setup-guide ol {
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.setup-guide li {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 3px solid var(--border-ink);
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.alert-box {
+  border: 2px solid var(--border-ink);
+  padding: 1rem;
+  border-radius: var(--drawn-border-2);
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  font-size: 1.4rem;
+  box-shadow: 3px 3px 0px rgba(0,0,0,0.8);
+}
