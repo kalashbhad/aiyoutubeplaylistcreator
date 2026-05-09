@@ -27,7 +27,7 @@ Since this app interacts with your personal YouTube account to create playlists,
 3. Go to **APIs & Services > Library**, search for **YouTube Data API v3**, and click **Enable**.
 4. Go to **OAuth consent screen**. Choose **External**, fill in the required names/emails, and hit Save. Make sure to add your Google email under the **Test users** section!
 5. Go to **Credentials > + Create Credentials > OAuth client ID**.
-6. Select **Web application**. Under **Authorized JavaScript origins**, add the URL where the app is hosted (e.g., `http://localhost:5173` for local dev).
+6. Select **Web application**. Under **Authorized JavaScript origins**, add the live URL: `https://aiyoutubeplaylistcreator.vercel.app`
 7. Copy the generated **Client ID** and paste it into the app!
 
 ## 💻 Local Development

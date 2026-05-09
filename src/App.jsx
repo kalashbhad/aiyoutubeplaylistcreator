@@ -71,7 +71,7 @@ function App() {
                   <li>Go to <strong>APIs & Services &gt; OAuth consent screen</strong>. Choose <strong>External</strong>. Fill in an App name and your email. Click Save.</li>
                   <li>In the Consent Screen setup, under <strong>Test users</strong>, make sure to add the Google email address you plan to log in with!</li>
                   <li>Go to <strong>APIs & Services &gt; Credentials</strong>. Click <strong>+ Create Credentials &gt; OAuth client ID</strong>.</li>
-                  <li>Select <strong>Web application</strong>. Under <strong>Authorized JavaScript origins</strong>, add the URL where you are viewing this app (e.g., <code>http://localhost:5173</code> or your Vercel URL).</li>
+                  <li>Select <strong>Web application</strong>. Under <strong>Authorized JavaScript origins</strong>, add this exact URL: <code>https://aiyoutubeplaylistcreator.vercel.app</code></li>
                   <li>Click Create. Copy the <strong>Client ID</strong> (the long string ending in <code>.apps.googleusercontent.com</code>) and paste it in the box above!</li>
                 </ol>
               </div>
