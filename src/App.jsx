@@ -31,7 +31,7 @@ function App() {
         <p>Automate your YouTube music experience & download videos</p>
       </header>
 
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '2rem' }}>
+      <div className="tabs-container">
         <button 
           className={`btn ${activeTab === 'creator' ? 'btn-primary' : ''}`}
           onClick={() => setActiveTab('creator')}

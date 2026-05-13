@@ -101,7 +101,7 @@ const Downloader = () => {
         />
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+      <div className="options-grid">
         <div className="form-group">
           <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 'bold' }}>Format</label>
           <div style={{ display: 'flex', gap: '0.5rem' }}>

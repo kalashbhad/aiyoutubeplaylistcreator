@@ -82,7 +82,7 @@ function PlaylistCreator({ accessToken }) {
 
   return (
     <div style={{ textAlign: 'left', width: '100%' }}>
-      <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem', background: 'rgba(15, 23, 42, 0.4)', padding: '0.5rem', borderRadius: '12px' }}>
+      <div className="input-mode-container">
         <button
           type="button"
           onClick={() => setInputMode('links')}
